@@ -35,7 +35,7 @@ a { color: var(--mar); }
   background: rgba(243, 250, 251, .92); backdrop-filter: blur(6px);
 }
 .marca { display: inline-flex; text-decoration: none; }
-.marca img { height: 64px; width: auto; display: block; }
+.marca img { height: 96px; width: auto; display: block; }
 .topo nav { display: flex; align-items: center; gap: 1.5rem; }
 .topo nav a:not(.botao) { text-decoration: none; color: var(--tinta); font-weight: 500; }
 .topo nav a:not(.botao):hover { text-decoration: underline; }

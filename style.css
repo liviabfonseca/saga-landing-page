@@ -1,6 +1,6 @@
 :root {
   --tinta: #0c2b3a;
-  --mar: #0f5f7a;
+  --mar: #1d78ad;
   --agua: #bfe6ee;
   --espuma: #f3fafb;
   --alerta: #d6402f;
@@ -30,11 +30,12 @@ a { color: var(--mar); }
 /* Topo */
 .topo {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1rem clamp(1rem, 5vw, 4rem);
+  gap: 1rem; padding: .5rem clamp(1rem, 5vw, 4rem);
   position: sticky; top: 0; z-index: 10;
   background: rgba(243, 250, 251, .92); backdrop-filter: blur(6px);
 }
-.marca { font-weight: 700; font-size: 1.25rem; text-decoration: none; }
+.marca { display: inline-flex; text-decoration: none; }
+.marca img { height: 64px; width: auto; display: block; }
 .topo nav { display: flex; align-items: center; gap: 1.5rem; }
 .topo nav a:not(.botao) { text-decoration: none; color: var(--tinta); font-weight: 500; }
 .topo nav a:not(.botao):hover { text-decoration: underline; }

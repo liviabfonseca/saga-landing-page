@@ -1,0 +1,148 @@
+:root {
+  --tinta: #0c2b3a;
+  --mar: #0f5f7a;
+  --agua: #bfe6ee;
+  --espuma: #f3fafb;
+  --alerta: #d6402f;
+  --texto: #1d3640;
+  --raio: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Public Sans", system-ui, sans-serif;
+  color: var(--texto);
+  background: var(--espuma);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .marca {
+  font-family: "Bricolage Grotesque", "Public Sans", sans-serif;
+  color: var(--tinta);
+  line-height: 1.1;
+}
+
+a { color: var(--mar); }
+:focus-visible { outline: 3px solid var(--mar); outline-offset: 3px; }
+
+/* Topo */
+.topo {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1rem clamp(1rem, 5vw, 4rem);
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(243, 250, 251, .92); backdrop-filter: blur(6px);
+}
+.marca { font-weight: 700; font-size: 1.25rem; text-decoration: none; }
+.topo nav { display: flex; align-items: center; gap: 1.5rem; }
+.topo nav a:not(.botao) { text-decoration: none; color: var(--tinta); font-weight: 500; }
+.topo nav a:not(.botao):hover { text-decoration: underline; }
+
+/* Botões */
+.botao {
+  display: inline-block; background: var(--tinta); color: #fff;
+  padding: .85rem 1.5rem; border-radius: 999px; font-weight: 600;
+  text-decoration: none; transition: background .2s;
+}
+.botao:hover { background: var(--mar); }
+.botao-pequeno { padding: .5rem 1.1rem; font-size: .95rem; }
+.link { font-weight: 600; }
+
+/* Hero */
+.hero {
+  display: grid; grid-template-columns: 1.2fr 1fr; align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+  max-width: 1200px; margin: 0 auto;
+}
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700; letter-spacing: -.02em; }
+.hero p { margin-top: 1.25rem; max-width: 46ch; font-size: 1.15rem; }
+.acoes { margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+/* Medidor (elemento de destaque) */
+.medidor {
+  background: var(--tinta); color: var(--agua);
+  border-radius: 28px; padding: 2rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.medidor::after {
+  content: ""; position: absolute; inset: auto -20% -45% -20%; height: 70%;
+  background: var(--mar); border-radius: 50%; opacity: .55;
+  animation: onda 6s ease-in-out infinite alternate;
+}
+.medidor > * { position: relative; z-index: 1; }
+.medidor-mostrador {
+  display: inline-flex; align-items: flex-end; gap: 4px;
+  background: #061a24; padding: 1rem 1.25rem; border-radius: 10px;
+  border: 2px solid var(--mar);
+}
+.medidor-mostrador span {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem); color: #fff;
+  background: #0a2a38; padding: 0 .55rem; border-radius: 4px;
+}
+.medidor-mostrador .vermelho { background: var(--alerta); }
+.medidor-mostrador small { margin-left: .5rem; font-size: 1.1rem; align-self: center; }
+.medidor-ponteiro {
+  width: 4px; height: 56px; margin: 1.5rem auto 0;
+  background: var(--alerta); border-radius: 4px;
+  transform-origin: bottom center; animation: gira 8s linear infinite;
+}
+.medidor p { margin: 1rem 0 5rem; font-size: .95rem; }
+
+@keyframes gira { to { transform: rotate(360deg); } }
+@keyframes onda { to { transform: translateY(-8%) rotate(2deg); } }
+
+/* Seções */
+section h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.01em; }
+
+.solucoes, .empresa, .contato {
+  max-width: 1200px; margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1rem, 5vw, 4rem);
+}
+
+.lista-solucoes {
+  list-style: none; margin-top: 2.5rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem 2.5rem;
+}
+.lista-solucoes li { border-top: 3px solid var(--mar); padding-top: 1rem; }
+.lista-solucoes h3 { font-size: 1.3rem; margin-bottom: .5rem; }
+
+.empresa {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start;
+}
+.empresa p { margin-top: 1rem; max-width: 60ch; }
+.dados {
+  background: var(--agua); border-radius: var(--raio); padding: 1.5rem 1.75rem;
+  display: grid; gap: 1rem;
+}
+.dados dt { font-size: .85rem; color: var(--mar); font-weight: 600; }
+.dados dd { font-weight: 600; color: var(--tinta); }
+
+/* Contato */
+.contato { text-align: left; }
+.contato h2 { max-width: 22ch; }
+.contato address {
+  font-style: normal; margin: 2rem 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+}
+.contato strong { color: var(--tinta); }
+
+/* Rodapé */
+.rodape {
+  background: var(--tinta); color: var(--agua);
+  padding: 2rem clamp(1rem, 5vw, 4rem); font-size: .9rem;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .hero, .empresa { grid-template-columns: 1fr; }
+  .topo nav a:not(.botao) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .medidor-ponteiro, .medidor::after { animation: none; }
+}
